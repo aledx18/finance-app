@@ -1,4 +1,5 @@
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import { createSelectSchema } from 'drizzle-zod'
 
 export const accounts = sqliteTable('accounts', {
   id: text('id').primaryKey(),
@@ -6,3 +7,5 @@ export const accounts = sqliteTable('accounts', {
   name: text('name').notNull(),
   userId: text('user_id').notNull()
 })
+
+export const accountsSelectSchema = createSelectSchema(accounts)
