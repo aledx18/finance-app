@@ -9,5 +9,8 @@ const app = new Hono().basePath('/api')
 const routes = app.route('/accounts', accounts)
 
 export const GET = handle(routes)
+export const POST = handle(routes)
+export const PUT = handle(routes)
+export const DELETE = handle(routes)
 
 export type AppType = typeof routes
