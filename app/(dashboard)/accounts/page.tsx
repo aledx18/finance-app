@@ -1,7 +1,8 @@
 'use client'
+import { useGetAccounts } from '@/app/features/accounts/api/use-get-accounts'
+import { useBulkDeleteAccount } from '@/app/features/accounts/api/use-bulk-delete'
 import { DataTable } from '@/components/data-table'
-import { useGetAccounts } from '@/app/features/accounts/api/use-getAccounts'
-import { useDeleteAccount } from '@/app/features/accounts/api/use-delete-acount'
+
 import { useNewAccount } from '@/app/features/accounts/hooks/use-new-account'
 import { columns } from './columns'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -12,7 +13,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 export default function Page() {
   const newAccount = useNewAccount()
   const accountsQuery = useGetAccounts()
-  const deleteAccount = useDeleteAccount()
+  const deleteAccount = useBulkDeleteAccount()
   const accounts = accountsQuery.data || []
 
   const isDisabled = accountsQuery.isLoading || deleteAccount.isPending
