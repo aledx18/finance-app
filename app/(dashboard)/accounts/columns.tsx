@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { ColumnDef } from '@tanstack/react-table'
 import { ArrowUpDown } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
+import Actions from './actions'
 
 // get the first element of the response type always 200 method response type of accounts api
 export type ResponseType = InferResponseType<
@@ -48,5 +49,9 @@ export const columns: ColumnDef<ResponseType>[] = [
         </Button>
       )
     }
+  },
+  {
+    id: 'actions',
+    cell: ({ row }) => <Actions id={row.original.id} />
   }
 ]
